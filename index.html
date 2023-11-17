@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKEUP BEAUTY </title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar{
+    width:1rem;
+}
+html::-webkit-scrollbar-thumb{
+    background: #F08080;
+}
+section{
+    padding:3rem 9%;
+}
+span{
+    color:#F08080;
+}
+
+.heading{
+    text-align: center;
+    color: #222;
+    margin-bottom: 3rem;
+    font-size: 4rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:1rem;
+    padding:1rem 3rem;
+    color:#222;
+    font-size:1.7rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.7);
+    cursor: pointer;
+}
+.btn:hover{
+    letter-spacing: .1rem;
+    background: #F08080;
+    color: #fff;
+}
+
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: translateY(-4rem) scale(0.4);
+    }
+}
+.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    background:#F08080;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1.5rem 9%;
+}
+.header .logo{
+    font-size: 2.5rem;
+    color: #222;
+    font-weight: bolder;
+}
+.header .logo i{
+    color: #F08080;
+}
+.header .navbar a{
+    margin: 0 1.5rem;
+    font-size: 1.7rem;
+    color: #222;
+}
+.header .navbar a:hover{
+    color: #F08080;
+}
+.header .icons div,
+.header .icons a{
+    height: 4.5rem;
+    width:4.5rem;
+    line-height: 4.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    font-size: 1.7rem;
+    color: #222;
+    margin-left: .3rem;
+    text-align: center;
+    cursor: pointer;
+}
+.header .icons a:hover,
+.header .icons div:hover{
+    background: #F08080;
+    color: #fff;
+}
+.header #menu-btn{
+    display: none;
+}
+
+.home{
+    position: relative;
+    padding:0;
+}
+
+.home .slide{
+    padding: 3rem;
+    display: flex;
+    min-height: 90vh;
+    display:none;
+}
+.home .slide .content{
+    margin:60;
+    text-align: left;
+    padding-top:18rem;
+}
+.home .slide.active{
+    display:flex;
+}
+
+.home .slide .content span{
+    color: #fff;
+    display:block;
+    font-size: 9rem;
+    text-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    animation: fadeIn .2s linear backwards;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+.home .slide .content span:hover{
+    color: #F08080;
+}
+.home .slide .content h3{
+    font-size:1.7rem;
+    color: #fff;
+    text-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    animation: fadeIn .2s linear backwards .4s;
+    letter-spacing: .1rem;
+    font-weight: normal;
+
+}
+.home .slide .content .btn{
+    animation: fadeIn .2s linear backwards .6s;
+}
+.home #next-slide,
+.home #prev-slide{
+    height:5rem;
+    width:5rem;
+    line-height:4.5rem;
+    font-size:2.5rem;
+    color: #222;
+    background: transparent;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.9);
+    cursor: pointer;
+    position: absolute;
+    bottom:2rem;
+    right:2rem;
+    text-align: center;
+}
+
+.home #next-slide:hover,
+.home #prev-slide:hover{
+    background: #F08080;
+    color: #fff;
+}
+
+.home #prev-slide{
+    right:8rem;
+}
+
+.category .box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap:2rem;
+}
+
+.category .box-container .box{
+    text-align:center;
+}
+
+.category .box-container .box:hover h3{
+    color: #F08080;
+}
+.category .box-container .box img{
+    height:150px;
+    width: 150px;
+}
+
+.category .box-container .box h3{
+    font-size:1.7rem;
+    color: #222;
+    font-weight: bold;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+.about .img{
+    flex: 1 1 42rem;
+    padding-bottom: 5rem;
+    padding-right: 5rem;
+}
+.about .img img{
+    width: 100%;
+    box-shadow: 4rem 4rem 0 #eee;
+}
+.about .content{
+    flex: 1 1 42rem;
+}
+.about .content .box{
+    padding: 3rem;
+    background: #eee;
+}
+.about .content .box h3{
+    font-size:2.5rem;
+    color: #222;
+}
+.about .content .box p{
+    padding: 1rem 0;
+    line-height: 2;
+    color: #666;
+    font-size:1.4rem;
+}
+.about .content .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.about .content .icons-container .icons{
+    flex: 1 1 16rem;
+    background: #eee;
+    padding:2rem;
+    text-align: center;
+}
+.about .content .icons-container .icons i{
+    color: #F08080;
+    margin-bottom: 1rem;
+    font-size: 5rem;
+}
+.about .content .icons-container .icons p{
+    font-size:1.4rem;
+    color: #666;
+}
+
+.banner{
+    background: url(models2.jpg) no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+.banner .content{
+    max-width: 40rem;
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    padding: 2rem;
+    text-align: center;
+    margin: 10rem 0;
+    
+}
+.banner .content span{
+    font-size:2rem;
+}
+.banner .content h3{
+    font-size:3rem;
+    color: #222;
+    padding-top: .5rem;
+}
+.banner .content p{
+    font-size: 1.4rem;
+    color: #666;
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.services{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+    gap:2rem;
+    background: #F08080;
+}
+.services .box{
+    text-align: center;
+    padding:2rem;
+}
+.services .box img{
+    height:10rem;
+}
+.services .box h3{
+    padding:1rem 0;
+    font-size: 2rem;
+    color: #fff;
+}
+.services .box p{
+    line-height: 2;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+img {
+    width: 3%; /* Adjust the width as needed */
+    color: orangered;
+    margin-left: 10px;
+    cursor: pointer;
+    }
+
+
+
+/* media queries */
+@media (max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding:1.5rem 2rem;
+    }
+    section{
+        padding:3rem 2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .header #menu-btn{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 0.2rem solid #222;
+        border-bottom: 0.2rem solid #222;
+        padding: 0.2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .navbar a{
+        display: block;
+        font-size:2rem;
+        margin:3rem 1rem;
+    }
+
+}
+
+@media (max-width:450px){
+    html{
+        font-size:50%;
+    }
+    .home .slide .content span{
+        font-size:4rem;
+    }
+    .home .slide .content h3{
+        font-size: 2rem;
+    }
+}
+
+.containerr {
+        max-width: 1000px;
+            margin: 5px auto; /* Adjust margin for centering horizontally */
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add position relative */
+            top: 650px; /* Adjust the top position */
+            margin-left: 12%;
+            color: black; /* color font untuk form */
+            padding-top: 3%;
+            height: 1000px;
+        }
+
+        .containerr2 {
+            max-width: 290px;
+            margin: 5px auto; /* Adjust margin for centering horizontally */
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Add position relative */
+            top: 20px; /* Adjust the top position */
+            margin-left: 50%;
+            color: black; /* color font untuk form */
+            padding-top: 3%;
+            height: 300px;
+        }
+        .containerr form {
+            display: flex;
+            align-items: center;
+            max-width: 300px;
+            margin-top: 20px;
+        }
+
+        .containerr label {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .containerr input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .containerr button {
+            padding: 8px 12px;
+            background-color: orangered;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .containerr button:hover {
+            background-color: #ff5722;
+        }
+</style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<section id="header" class="header">
+    <img src="makeup.png" alt="makeup Icon">
+<a href="#" class="logo" ></i> Makeup Beauty</a>
+<nav class="navbar">
+    <a href="#home">home</a>
+    <a href="#about">about</a>
+    <script src="type.js"></script>
+
+    <label for="brand">Choose your brand :</label>
+    <select name="brand" id="brandDropdown">
+        <option value="">Search</option>
+        <option value="colourpop">ColourPop</option>
+        <option value="boosh">Boosh</option>
+        <option value="deciem">deciem</option>
+        <option value="zorah biocosmetiques">zorah biocosmetiques</option>
+        <option value="w3llpeople">w3llpeople</option>
+        <option value="sally b's skin yummies">sally b's skin yummies</option>
+        <option value="rejuva minerals">rejuva minerals</option>
+        <option value="penny lane organics">penny lane organics</option>
+        <option value="nudus">nudus</option>
+        <option value="marienatie">marienatie</option>
+        <option value="maia's mineral galaxy">maia's mineral galaxy</option>
+        <option value="lotus cosmetics usa">lotus cosmetics usa</option>
+        <option value="green people">green people</option>
+        <option value="coastal classic creation">coastal classic creation</option>
+        <option value="c'est moi">c'est moi</option>
+        <option value="alva">alva</option>
+        <option value="glossier">glossier</option>
+        <option value="nyx">nyx</option>
+        <option value="fenty">rejuva minerals</option>
+        <option value="dior">dior</option>
+        <option value="clinique">clinique</option>
+        <option value="iman">iman</option>
+        <option value="benefit">benefit</option>
+        <option value="smashbox">smashbox</option>
+        <option value="marcelle">marcelle</option>
+        <option value="stila">stila</option>
+        <option value="mineral fusion">mineral fusion</option>
+        <option value="null">null</option>
+        <option value="annabelle">annabelle</option>
+        <option value="dr. hauschka">dr. hauschka</option>
+        <option value="physicians formula">physicians formula</option>
+        <option value="cargo cosmetics">cargo cosmetics</option>
+        <option value="covergirl">covergirl</option>
+        <option value="e.l.f.">e.l.f.</option>
+        <option value="maybelline">maybelline</option>
+        <option value="almay">almay</option>
+        <option value="milani">milani</option>
+        <option value="pure anada">pure anada</option>
+        <option value="l'oreal">l'oreal</option>
+        <option value="sante">sante</option>
+        <option value="revlon">revlon</option>
+        <option value="anna sui">anna sui</option>
+        <option value="wet n wild">wet n wild</option>
+        <option value="pacifica">pacifica</option>
+        <option value="mistura">mistura</option>
+        <option value="zorah">zorah</option>
+        <option value="suncoat">suncoat</option>
+        <option value="moov">moov</option>
+        <option value="misa">misa</option>
+        <option value="salon perfect">salon perfect</option>
+        <option value="orly">orly</option>
+        <option value="china glaze">china glaze</option>
+        <option value="essie">essie</option>
+        <option value="butter london">suncoat</option>
+        <option value="sinful colours">sinful colours</option>
+        <option value="piggy paint">piggy paint</option>
+        <option value="dalish">dalish</option>
+        <option value="burt's bees">burt's bees</option>
+        
+
+
+        
+
+
+
+
+        
+    </select>
+    <br><br>
+    <button onclick="buttonClicked()">Submit</button>
+    
+</nav>
+
+<div class="icons">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a href="#" class="fas fa-heart"></a>
+    <a href="#" class="fas fa-shopping-cart"></a>
+</div>
+</section>
+
+<section class="home" id="home">
+
+    <div class="slide active" style="background:url(models.jpg) no-repeat; background-size:cover;
+    background-position: center;">
+    <div class="content">
+        <span>beauty begins <br> with you</span>
+        <h3>"“Makeup is the finishing touch, the final accessory.” – Marc Jacobs. </h3>
+    
+    </div>
+    </div>
+
+</section>
+
+
+
+<section class="about" id="about">
+    <div class="content" id="productContainer"></div>
+</section>
+
+<section id="favorites">
+    <h2>Your Favorites</h2>
+    <div id="favoritesContainer"></div>
+</section>
+
+      
+
+
+
+<section class="services">
+
+    <div class="box">
+        <h3>Facebook</h3>
+        <p>@makeupbeauty</p>
+    </div>
+
+    <div class="box">
+        <h3>Instagram</h3>
+        <p>@makeup_beauty</p>
+    </div>
+
+    <div class="box">
+        <h3>Tiktok</h3>
+        <p>@makeupbeauty</p>
+    </div>
+
+</section>
+
+
+
+
+ <script src="main2.js" defer data-deferred="1"></script> 
+
+ 
+
+</body>
+</html>
